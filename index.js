@@ -22,7 +22,6 @@ app.use('/api', require('./routes/api'));
 
 // error handler
 app.use((err, req, res, next) => {
-    // console.log(err);
     res.status(422).send({error: err.message});
 });
 
@@ -32,9 +31,3 @@ app.use((err, req, res, next) => {
 app.listen(process.env.port || 4000, () => {
     console.log('Now listening to port 4000 for requests...');
 });
-
-// app.get('/api', (req, res) => {
-//     console.log('GET request');
-//     // res.end();
-//     res.send({ name: 'Naruto'});
-// });
