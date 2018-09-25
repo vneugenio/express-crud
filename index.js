@@ -13,15 +13,18 @@ mongoose.connect(
 // fix for deprecated mongoose.Promise
 mongoose.Promise = global.Promise;
 
-
-
-// enable bodyParser
+// enable parsing of json data
 app.use(bodyParser.json());
 
 // initialize routes
-app.use('/api', require('./routes/api'));  // -- insert 'api' before each route set
+// -- insert 'api' before each route set
+app.use('/api', require('./routes/api'));
 
-// enable parsing of json data
+// error handler
+app.use((err, req, res, next) => {
+    // console.log(err);
+    res.status(422).send({error: err.message});
+});
 
 
 //listen for requests -- will listen to 4000 if either process.env.port
