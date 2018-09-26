@@ -1,0 +1,59 @@
+extends layout
+
+
+block content
+    h1.display-4.text-center #{title}
+    div.col-md-5.p-5.mx-auto
+        div.row.px-5
+            button.btn.btn-primary.btn-lg.btn-block(data-toggle='modal' data-target='#loginModal' type='button') Log In
+            
+            button.btn.btn-success.btn-lg.btn-block.mt-3(data-toggle='modal' data-target='#registerModal' type='button') Register
+    
+    
+    //- Login Modal 
+    div.modal.fade(id='loginModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+        div.modal-dialog.modal-dialog-centered(role='document')
+            div.modal-content
+                div.modal-header
+                    h5.modal-title(id='exampleModalCenterTitle') Login
+                    button.close(type='button' data-dismiss='modal' aria-label='Close')
+                        span(aria-hidden='true') &times;
+                div.modal-body
+                    form
+                        div.form-group
+                            label(for="username") Username
+                            input.form-control(type='text' id='username' aria-describedby="emailHelp" placeholder='Enter Username') 
+                        div.form-group
+                            label(for="username") Password
+                            input.form-control(type='password' id='username' aria-describedby="emailHelp" placeholder='Enter Password')
+                        div.form-group
+                            button.btn.btn-primary(type='button') Login  
+                //- div.modal-footer
+                //-     button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+                    
+                    
+    //-  Register Modal
+    div.modal.fade(id='registerModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
+        div.modal-dialog.modal-dialog-centered(role='document')
+            div.modal-content
+                div.modal-header
+                    h5.modal-title(id='exampleModalCenterTitle') Register
+                    button.close(type='button' data-dismiss='modal' aria-label='Close')
+                        span(aria-hidden='true') &times;
+                div.modal-body
+                    form(action='/api/register' method='POST')
+                        div.form-group
+                            label(for="username") Username
+                            input.form-control(type='text' id='username' aria-describedby="emailHelp" name='username' placeholder='Enter Username') 
+                        div.form-group
+                            label(for="email") Email
+                            input.form-control(type='text' id='email' aria-describedby="emailHelp" name='email' placeholder='Enter Username') 
+                        div.form-group
+                            label(for="username") Password
+                            input.form-control(type='password' id='password' aria-describedby="emailHelp" name='password' placeholder='Enter Password') 
+                        div.form-group
+                            button.btn.btn-primary(type='submit') Register  
+                //- div.modal-footer
+                //-     button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+                //-     button.btn.btn-primary(type='button') Register  
+        
