@@ -19,17 +19,15 @@ block content
                     button.close(type='button' data-dismiss='modal' aria-label='Close')
                         span(aria-hidden='true') &times;
                 div.modal-body
-                    form
+                    form(action='/api/login' method='POST')
                         div.form-group
                             label(for="username") Username
-                            input.form-control(type='text' id='username' aria-describedby="emailHelp" placeholder='Enter Username') 
+                            input.form-control(type='text' id='username' aria-describedby="emailHelp" name='username' placeholder='Enter Username') 
                         div.form-group
                             label(for="username") Password
-                            input.form-control(type='password' id='username' aria-describedby="emailHelp" placeholder='Enter Password')
+                            input.form-control(type='password' id='username' aria-describedby="emailHelp" name='password' placeholder='Enter Password')
                         div.form-group
-                            button.btn.btn-primary(type='button') Login  
-                //- div.modal-footer
-                //-     button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+                            button.btn.btn-primary(type='submit') Login  
                     
                     
     //-  Register Modal
@@ -53,7 +51,3 @@ block content
                             input.form-control(type='password' id='password' aria-describedby="emailHelp" name='password' placeholder='Enter Password') 
                         div.form-group
                             button.btn.btn-primary(type='submit') Register  
-                //- div.modal-footer
-                //-     button.btn.btn-secondary(type='button' data-dismiss='modal') Close
-                //-     button.btn.btn-primary(type='button') Register  
-        
