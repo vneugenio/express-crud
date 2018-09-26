@@ -14,6 +14,9 @@ https://obscure-lake-37942.herokuapp.com/api/
 
 Endpoints (All requests require login except for registration):
 GET
+(logout) --- sets the "auth" key to false
+ - https://obscure-lake-37942.herokuapp.com/api/logout
+
 https://obscure-lake-37942.herokuapp.com/api/users
 https://obscure-lake-37942.herokuapp.com/api/users/:userId
 
@@ -29,6 +32,7 @@ For the user id, the objectIds from the collection are to be used:
 Ex. https://obscure-lake-37942.herokuapp.com/api/users/5baa96b7d8ce0117a0787ac7
 
 POST (Creating new entries for the collection)
+- https://obscure-lake-37942.herokuapp.com/api/register    -- create new user
 - https://obscure-lake-37942.herokuapp.com/api/users    -- create new user
 send request through postman with the following request body: 
 {
@@ -36,9 +40,6 @@ send request through postman with the following request body:
   "email": "anotherMail@gmail.com",
   "password": "secretPassword"
 }
-
-POST (logout) --- sets the "auth" key to false
- - https://obscure-lake-37942.herokuapp.com/api/logout
 
 
 PUT (updating a record, requires login)
@@ -48,6 +49,8 @@ PUT (updating a record, requires login)
  {"username": "value", "email": "another@mail.com", "password": "anothervalue"}
  
  
+ DELETE (delete a document from collection)
+ - https://obscure-lake-37942.herokuapp.com/api/users/:userId
  
  
  
