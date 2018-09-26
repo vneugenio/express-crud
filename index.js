@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
+const path = require('path');
+const expressValidator = require('express-validator');
 
 //setup express app
 const app = express();
@@ -16,10 +17,14 @@ mongoose.Promise = global.Promise;
 // enable parsing of json data
 app.use(bodyParser.json());
 
+// Set templating engine
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
 // initialize routes
 // -- insert 'api' before each route set
 app.use('/api', require('./routes/api'));
-
+app.use(expressValidator());
 // error handler
 app.use((err, req, res, next) => {
     res.status(422).send({error: err.message});
