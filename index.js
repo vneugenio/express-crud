@@ -28,6 +28,6 @@ app.use((err, req, res, next) => {
 
 //listen for requests -- will listen to 4000 if either process.env.port
 // is not available / undefined
-app.listen(process.env.port || 4000, () => {
+app.listen(process.env.PORT || 4000, () => {
     console.log('Now listening to port 4000 for requests...');
 });
